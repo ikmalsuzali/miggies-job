@@ -122,3 +122,56 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   }
 }
+
+export function imageGallerySchema(project: {
+  title: string
+  slug: string
+  gallery: { src: string; alt: string }[]
+  heroImage: { src: string; alt: string }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: `${project.title} — Interior Design Gallery`,
+    url: `${siteConfig.url}/portfolio/${project.slug}`,
+    image: [
+      {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}${project.heroImage.src}`,
+        name: project.heroImage.alt,
+      },
+      ...project.gallery.map((img) => ({
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}${img.src}`,
+        name: img.alt,
+      })),
+    ],
+  }
+}
+
+export function reviewSchema(testimonials: { quote: string; author: string; project: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      reviewBody: t.quote,
+      author: {
+        '@type': 'Person',
+        name: t.author,
+      },
+      itemReviewed: {
+        '@type': 'CreativeWork',
+        name: t.project,
+      },
+    })),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: String(testimonials.length),
+      bestRating: '5',
+    },
+  }
+}

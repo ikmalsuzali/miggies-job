@@ -8,7 +8,7 @@ import ProjectDetails from '@/components/project/ProjectDetails'
 import ImageComparisonSlider from '@/components/project/ImageComparisonSlider'
 import ProjectGallery from '@/components/project/ProjectGallery'
 import ScrollReveal from '@/components/ui/ScrollReveal'
-import JsonLd, { projectSchema, breadcrumbSchema } from '@/components/seo/JsonLd'
+import JsonLd, { projectSchema, breadcrumbSchema, imageGallerySchema } from '@/components/seo/JsonLd'
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>
@@ -64,12 +64,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <>
       <JsonLd data={[
         projectSchema(project),
+        imageGallerySchema(project),
         breadcrumbSchema([
           { name: 'Home', url: '/' },
           { name: 'Portfolio', url: '/portfolio' },
           { name: project.title, url: `/portfolio/${slug}` },
         ]),
       ]} />
+      <article>
       <ProjectHero project={project} />
       <ProjectDetails project={project} />
 
@@ -99,6 +101,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       <ProjectGallery images={project.gallery} />
+      </article>
 
       {/* Next project — fullwidth preview */}
       <Link

@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="md:col-span-3">
+          <nav aria-label="Footer navigation" className="md:col-span-3">
             <h4 className="text-xs uppercase tracking-[0.25em] text-cream/30 mb-6">
               Navigation
             </h4>
@@ -43,7 +43,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact */}
           <div className="md:col-span-4">

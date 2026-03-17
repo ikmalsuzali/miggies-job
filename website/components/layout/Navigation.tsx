@@ -45,7 +45,7 @@ export default function Navigation() {
             : 'bg-transparent'
         )}
       >
-        <nav className="mx-auto max-w-[1400px] px-6 lg:px-16 flex items-center justify-between h-18 lg:h-24">
+        <nav aria-label="Main navigation" className="mx-auto max-w-[1400px] px-6 lg:px-16 flex items-center justify-between h-18 lg:h-24">
           {/* Logo */}
           <Link href="/" className="font-serif text-lg lg:text-xl font-semibold tracking-tight text-ink">
             {siteConfig.name}
