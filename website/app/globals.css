@@ -3,7 +3,9 @@
 @theme {
   --color-cream: #FAF8F5;
   --color-cream-dark: #F0EDE8;
+  --color-cream-white: #FFFFFF;
   --color-ink: #1a1a1a;
+  --color-ink-deep: #0d0d0d;
   --color-ink-light: #4a4a4a;
   --color-ink-muted: #8a8a8a;
   --color-brass: #B8956A;
@@ -17,6 +19,8 @@
   --font-sans: var(--font-outfit);
 }
 
+/* ── Base ──────────────────────────────────────────────── */
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,14 +31,37 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
+
+/* ── Selection ─────────────────────────────────────────── */
 
 ::selection {
-  background-color: var(--color-brass-light);
-  color: var(--color-ink);
+  background-color: var(--color-brass);
+  color: var(--color-cream);
 }
 
-/* Comparison slider thumb */
+/* ── Custom scrollbar ──────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brass-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass);
+}
+
+/* ── Comparison slider ─────────────────────────────────── */
+
 .comparison-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -43,4 +70,32 @@ body {
   background: white;
   cursor: ew-resize;
   border: none;
+}
+
+/* ── Premium link underline animation ──────────────────── */
+
+.link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-ink);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* ── Form focus glow ───────────────────────────────────── */
+
+.input-glow:focus {
+  box-shadow: 0 2px 20px rgba(184, 149, 106, 0.15);
 }

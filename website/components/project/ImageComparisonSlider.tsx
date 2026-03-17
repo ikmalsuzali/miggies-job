@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { ComparisonPair } from '@/lib/types'
 
 interface ImageComparisonSliderProps {
@@ -44,9 +45,13 @@ export default function ImageComparisonSlider({
   )
 
   return (
-    <div className="space-y-3">
-      <div
+    <div className="space-y-4">
+      <motion.div
         ref={containerRef}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="relative aspect-[16/10] overflow-hidden cursor-ew-resize select-none bg-cream-dark"
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -71,20 +76,21 @@ export default function ImageComparisonSlider({
           className="absolute inset-0 overflow-hidden"
           style={{ width: `${position}%` }}
         >
-          <Image
-            src={comparison.render.src}
-            alt={comparison.render.alt}
-            fill
-            className="object-cover"
-            style={{ width: `${containerRef.current?.offsetWidth ?? 0}px`, maxWidth: 'none' }}
-            sizes="100vw"
-            draggable={false}
-          />
+          <div className="absolute inset-0" style={{ width: `${containerRef.current?.offsetWidth ?? 9999}px` }}>
+            <Image
+              src={comparison.render.src}
+              alt={comparison.render.alt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              draggable={false}
+            />
+          </div>
         </div>
 
         {/* Divider line */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white/80 z-10"
+          className="absolute top-0 bottom-0 w-[2px] bg-white/90 z-10"
           style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
         />
 
@@ -95,40 +101,28 @@ export default function ImageComparisonSlider({
           onMouseDown={handleMouseDown}
           onTouchStart={() => setIsDragging(true)}
         >
-          <div className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center cursor-ew-resize hover:scale-110 transition-transform">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              className="text-ink"
-            >
-              <path
-                d="M6 10H14M6 10L8 8M6 10L8 12M14 10L12 8M14 10L12 12"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+          <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.2)] flex items-center justify-center cursor-ew-resize hover:scale-110 active:scale-95 transition-transform">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-ink">
+              <path d="M6 10H14M6 10L8.5 7.5M6 10L8.5 12.5M14 10L11.5 7.5M14 10L11.5 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
 
         {/* Labels */}
         <div className="absolute top-4 left-4 z-10">
-          <span className="text-xs uppercase tracking-widest text-white/80 bg-ink/40 backdrop-blur-sm px-3 py-1.5">
-            Render
+          <span className="text-xs uppercase tracking-[0.2em] text-white/90 bg-ink/50 backdrop-blur-md px-4 py-2">
+            3D Render
           </span>
         </div>
         <div className="absolute top-4 right-4 z-10">
-          <span className="text-xs uppercase tracking-widest text-white/80 bg-ink/40 backdrop-blur-sm px-3 py-1.5">
-            Reality
+          <span className="text-xs uppercase tracking-[0.2em] text-white/90 bg-ink/50 backdrop-blur-md px-4 py-2">
+            Built Space
           </span>
         </div>
-      </div>
+      </motion.div>
 
       {comparison.caption && (
-        <p className="text-xs text-ink-muted text-center uppercase tracking-widest">
+        <p className="text-xs text-ink-muted text-center uppercase tracking-[0.2em]">
           {comparison.caption}
         </p>
       )}

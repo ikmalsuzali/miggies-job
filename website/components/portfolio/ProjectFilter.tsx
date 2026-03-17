@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils'
 
-const categories = ['All', 'Residential', 'Commercial', 'Design & Built']
+const categories = ['All', 'Residential', 'Commercial']
 
 interface ProjectFilterProps {
   active: string
@@ -11,19 +11,25 @@ interface ProjectFilterProps {
 
 export default function ProjectFilter({ active, onChange }: ProjectFilterProps) {
   return (
-    <div className="flex flex-wrap gap-3 mb-12">
+    <div className="flex flex-wrap gap-6 mb-14">
       {categories.map((cat) => (
         <button
           key={cat}
           onClick={() => onChange(cat)}
           className={cn(
-            'text-xs uppercase tracking-[0.15em] px-5 py-2.5 transition-all duration-300 border',
+            'relative text-xs uppercase tracking-[0.2em] py-2 transition-colors duration-300',
             active === cat
-              ? 'bg-ink text-cream border-ink'
-              : 'bg-transparent text-ink-light border-ink/15 hover:border-ink/40'
+              ? 'text-ink'
+              : 'text-ink-muted hover:text-ink'
           )}
         >
           {cat}
+          <span
+            className={cn(
+              'absolute bottom-0 left-0 right-0 h-px bg-ink transition-all duration-300',
+              active === cat ? 'opacity-100' : 'opacity-0'
+            )}
+          />
         </button>
       ))}
     </div>

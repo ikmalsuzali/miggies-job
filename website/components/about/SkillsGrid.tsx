@@ -1,44 +1,47 @@
 'use client'
 
-import { skills, skillCategories } from '@/lib/data/skills'
 import ScrollReveal from '@/components/ui/ScrollReveal'
-import SectionHeading from '@/components/ui/SectionHeading'
+
+const capabilities = [
+  {
+    title: 'Software & Tools',
+    items: ['3ds Max', 'SketchUp', 'Corona Renderer', 'V-Ray', 'AutoCAD', 'Adobe Photoshop', 'Adobe Illustrator'],
+  },
+  {
+    title: 'Design Expertise',
+    items: ['Space Planning', 'Concept Development', 'Material Selection', 'FF&E Specification', 'Lighting Design', 'Colour Theory'],
+  },
+  {
+    title: 'Project Delivery',
+    items: ['Construction Drawings', '3D Visualization', 'Project Coordination', 'Site Supervision', 'Budgeting & Timelines', 'Client Relations'],
+  },
+]
 
 export default function SkillsGrid() {
   return (
-    <section className="py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 lg:py-36">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
         <ScrollReveal>
-          <SectionHeading
-            label="Capabilities"
-            title="Skills & Expertise"
-            subtitle="Proficiencies across software, design methodology, and technical delivery."
-          />
+          <div className="mb-16 lg:mb-24">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-ink leading-[0.95]">
+              Capabilities
+            </h2>
+          </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          {skillCategories.map((category, catIndex) => (
-            <ScrollReveal key={category} delay={catIndex * 0.1}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+          {capabilities.map((category, catIndex) => (
+            <ScrollReveal key={category.title} delay={catIndex * 0.1}>
               <div>
-                <h3 className="text-xs uppercase tracking-[0.2em] text-brass mb-6 pb-3 border-b border-brass/20">
-                  {category}
+                <h3 className="text-xs uppercase tracking-[0.25em] text-ink-muted mb-8 pb-4 border-b border-ink/10">
+                  {category.title}
                 </h3>
                 <ul className="space-y-4">
-                  {skills
-                    .filter((s) => s.category === category)
-                    .map((skill) => (
-                      <li key={skill.name}>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-sm text-ink">{skill.name}</span>
-                        </div>
-                        <div className="h-1 bg-cream-dark rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-brass/60 rounded-full transition-all duration-700"
-                            style={{ width: `${(skill.proficiency / 5) * 100}%` }}
-                          />
-                        </div>
-                      </li>
-                    ))}
+                  {category.items.map((item) => (
+                    <li key={item} className="text-sm text-ink">
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </ScrollReveal>

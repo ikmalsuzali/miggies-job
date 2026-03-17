@@ -1,79 +1,71 @@
 'use client'
 
-import { experiences } from '@/lib/data/experience'
 import ScrollReveal from '@/components/ui/ScrollReveal'
-import SectionHeading from '@/components/ui/SectionHeading'
+
+const career = [
+  {
+    role: 'Head of Design',
+    company: 'Design Bliss',
+    period: 'Jan 2025 — Present',
+    description: 'Leading the design team and overseeing full project lifecycle from concept to completion. Providing creative direction, managing client communication, and supervising project timelines.',
+  },
+  {
+    role: 'Senior Interior Designer',
+    company: 'Design Bliss',
+    period: 'Apr 2022 — Jan 2025',
+    description: 'Led interior design projects from concept development to final execution. Coordinated with consultants, contractors, and suppliers. Mentored junior designers.',
+  },
+  {
+    role: 'Interior Designer',
+    company: 'Blaine Robert Design / V ID Contract / Hdreka Resources',
+    period: 'Dec 2018 — Apr 2022',
+    description: 'Developed creative interior design solutions for residential and commercial projects across multiple firms, building expertise in materials, construction, and client relations.',
+  },
+]
 
 export default function ExperienceTimeline() {
   return (
-    <section className="py-24 lg:py-32 bg-cream-dark">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 lg:py-36 bg-cream-dark">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
         <ScrollReveal>
-          <SectionHeading
-            label="Career Journey"
-            title="Experience"
-            subtitle="A progressive path through Singapore's design industry."
-          />
+          <div className="mb-16 lg:mb-24">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-ink leading-[0.95]">
+              Experience
+            </h2>
+          </div>
         </ScrollReveal>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-brass/20 hidden md:block" />
-
-          <div className="space-y-12 lg:space-y-16">
-            {experiences.map((exp, index) => {
-              const isLeft = index % 2 === 0
-
-              return (
-                <ScrollReveal
-                  key={exp.company}
-                  delay={index * 0.1}
-                  direction={isLeft ? 'left' : 'right'}
-                >
-                  <div
-                    className={`relative md:grid md:grid-cols-2 md:gap-12 lg:gap-20 ${
-                      isLeft ? '' : 'md:direction-rtl'
-                    }`}
-                  >
-                    {/* Timeline dot */}
-                    <div className="absolute left-0 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-brass border-2 border-cream-dark hidden md:block" />
-
-                    <div
-                      className={`${
-                        isLeft
-                          ? 'md:text-right md:pr-12 lg:pr-20'
-                          : 'md:col-start-2 md:pl-12 lg:pl-20'
-                      }`}
-                    >
-                      <p className="text-xs uppercase tracking-[0.2em] text-brass mb-2">
-                        {exp.period}
-                      </p>
-                      <h3 className="font-serif text-2xl font-semibold text-ink mb-1">
-                        {exp.role}
-                      </h3>
-                      <p className="text-sm text-ink-muted mb-4">
-                        {exp.company} &middot; {exp.location}
-                      </p>
-                      <p className="text-ink-light text-sm leading-relaxed mb-4">
-                        {exp.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {exp.highlights.map((h) => (
-                          <li
-                            key={h}
-                            className="text-sm text-ink-light flex items-start gap-2"
-                          >
-                            <span className="w-1 h-1 rounded-full bg-brass mt-2 shrink-0" />
-                            {h}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              )
-            })}
+        <div className="max-w-3xl">
+          <div className="space-y-12">
+            {career.map((item, index) => (
+              <ScrollReveal key={item.role} delay={index * 0.1}>
+                <div className="relative pl-8 border-l border-ink/10">
+                  <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-ink -translate-x-[4.5px]" />
+                  <p className="text-xs text-ink-muted uppercase tracking-wider mb-2">
+                    {item.period}
+                  </p>
+                  <h3 className="font-serif text-xl lg:text-2xl font-medium text-ink mb-1">
+                    {item.role}
+                  </h3>
+                  <p className="text-xs text-ink-muted uppercase tracking-wider mb-4">
+                    {item.company}
+                  </p>
+                  <p className="text-sm text-ink-light leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
+
+          {/* Education */}
+          <ScrollReveal>
+            <div className="mt-16 pt-12 border-t border-ink/5">
+              <p className="text-xs uppercase tracking-[0.3em] text-ink-muted mb-3">Education</p>
+              <p className="font-serif text-xl text-ink">Bachelor&apos;s in Interior Architecture</p>
+              <p className="text-xs text-ink-muted mt-1 uppercase tracking-wider">UiTM &middot; 2014 — 2018</p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
