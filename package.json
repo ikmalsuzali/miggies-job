@@ -10,17 +10,18 @@
     "scrape:companies": "node scripts/scrape-companies.js",
     "scrape:jobs": "node scripts/scrape-jobs.js",
     "scrape:contacts": "node scripts/scrape-contacts.js",
+    "scrape:job-emails": "node scripts/scrape-job-emails.js",
     "scrape:all": "node scripts/run-all.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fal-ai/client": "^1.9.4",
     "apify-client": "^2.22.2",
     "csv-parse": "^6.1.0",
     "csv-writer": "^1.6.0",
     "dotenv": "^17.3.1"
   },
-  "devDependencies": {},
   "description": ""
 }

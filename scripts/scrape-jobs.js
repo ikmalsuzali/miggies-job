@@ -163,7 +163,7 @@ async function scrapeAllJobs() {
   console.log(`\nTotal jobs found: ${allJobsUnfiltered.length}`);
 
   // Filter out irrelevant job titles
-  const EXCLUDE_TITLES = ['sales', 'quantity surveyor', 'site coordinator'];
+  const EXCLUDE_TITLES = ['sales', 'quantity surveyor', 'site coordinator', 'construction manager', 'architect', 'business development'];
   const allJobsRaw = allJobsUnfiltered.filter((j) => {
     const title = j.title.toLowerCase();
     if (EXCLUDE_TITLES.some((ex) => title.includes(ex))) {
