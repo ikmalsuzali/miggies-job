@@ -33,6 +33,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} — ${project.category} Interior Design`,
       description: project.subtitle,
+      url: `/portfolio/${slug}`,
       images: [
         {
           url: project.heroImage.src,
@@ -41,6 +42,11 @@ export async function generateMetadata({
           alt: project.heroImage.alt,
         },
       ],
+    },
+    twitter: {
+      title: `${project.title} — ${project.category} Interior Design`,
+      description: `${project.subtitle}. ${project.category} interior design in ${project.location} by Ashikin Azidee.`,
+      images: [project.heroImage.src],
     },
   }
 }

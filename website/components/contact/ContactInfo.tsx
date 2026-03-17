@@ -4,11 +4,11 @@ export default function ContactInfo() {
   return (
     <div className="space-y-10">
       <div>
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-ink leading-[0.95] mb-6">
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-ink leading-[0.95] mb-6">
           Let&apos;s discuss
           <br />
           your project.
-        </h2>
+        </h1>
         <p className="text-ink-light text-base lg:text-lg leading-relaxed max-w-lg">
           Whether you&apos;re planning a new home, renovating a space, or developing a
           commercial project — I&apos;d love to hear about it.

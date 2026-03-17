@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  openGraph: {
+    title: 'Contact — Hire an Interior Designer in Malaysia',
+    description:
+      'Get in touch with Ashikin Azidee for residential and commercial interior design projects in Malaysia. Free consultation, 48-hour response.',
+    url: '/contact',
+  },
+  twitter: {
+    title: 'Contact — Hire an Interior Designer in Malaysia',
+    description:
+      'Get in touch for residential and commercial interior design projects in Malaysia. Free consultation, 48-hour response.',
+  },
 }
 
 export default function ContactPage() {

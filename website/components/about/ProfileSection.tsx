@@ -25,6 +25,7 @@ export default function ProfileSection() {
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
             </motion.div>
           </ScrollReveal>
