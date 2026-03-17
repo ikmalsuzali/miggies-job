@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { cormorant, outfit } from '@/lib/fonts'
 import { siteConfig } from '@/lib/data/site'
 import Navigation from '@/components/layout/Navigation'
@@ -57,6 +58,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${outfit.variable}`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-99HW7T68EW"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-99HW7T68EW');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navigation />
         <main className="flex-1 pt-16 lg:pt-20">{children}</main>
