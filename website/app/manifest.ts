@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Ashikin Azidee — Interior Designer & 3D Visualiser',
     short_name: 'Ashikin Azidee',
     description:
-      'Interior designer and 3D visualiser specializing in residential and commercial spaces with a focus on render-to-reality accuracy. Based in Malaysia.',
+      'Interior designer and 3D visualiser specializing in residential and commercial spaces with a focus on render-to-reality accuracy.',
     start_url: '/',
     display: 'standalone',
     background_color: '#FAF8F5',

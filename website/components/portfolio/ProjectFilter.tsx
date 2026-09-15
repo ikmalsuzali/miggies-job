@@ -1,37 +1,21 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { projects } from '@/lib/data/projects'
 
 const categories = ['All', 'Residential', 'Commercial']
 
-interface ProjectFilterProps {
-  active: string
-  onChange: (category: string) => void
-}
-
-export default function ProjectFilter({ active, onChange }: ProjectFilterProps) {
+export default function ProjectFilter({ active, onChange }: { active: string; onChange: (category: string) => void }) {
   return (
-    <div className="flex flex-wrap gap-6 mb-14">
-      {categories.map((cat) => (
-        <button
-          key={cat}
-          onClick={() => onChange(cat)}
-          className={cn(
-            'relative text-xs uppercase tracking-[0.2em] py-2 transition-colors duration-300',
-            active === cat
-              ? 'text-ink'
-              : 'text-ink-muted hover:text-ink'
-          )}
-        >
-          {cat}
-          <span
-            className={cn(
-              'absolute bottom-0 left-0 right-0 h-px bg-ink transition-all duration-300',
-              active === cat ? 'opacity-100' : 'opacity-0'
-            )}
-          />
-        </button>
-      ))}
+    <div role="group" aria-label="Filter projects by category" className="flex flex-wrap gap-x-6 gap-y-2 border-b border-ink/15">
+      {categories.map((category) => {
+        const count = category === 'All' ? projects.length : projects.filter((project) => project.category === category).length
+        return (
+          <button type="button" key={category} onClick={() => onChange(category)} aria-pressed={active === category} aria-controls="project-results" className={cn('text-xs uppercase tracking-[0.15em] min-h-12 py-3 border-b-2 transition-colors', active === category ? 'text-ink border-ink' : 'text-ink-muted border-transparent hover:text-ink')}>
+            {category}<span aria-hidden="true" className="ml-2 text-[10px] tabular-nums">{String(count).padStart(2, '0')}</span>
+          </button>
+        )
+      })}
     </div>
   )
 }

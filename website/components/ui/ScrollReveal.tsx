@@ -1,7 +1,6 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
-import { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 interface ScrollRevealProps {
   children: ReactNode
@@ -10,34 +9,41 @@ interface ScrollRevealProps {
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 
-const directionOffset = {
-  up: { y: 24 },
-  down: { y: -24 },
-  left: { x: 24 },
-  right: { x: -24 },
+const offsets = {
+  up: 'translateY(24px)',
+  down: 'translateY(-24px)',
+  left: 'translateX(24px)',
+  right: 'translateX(-24px)',
 }
 
-export default function ScrollReveal({
-  children,
-  className,
-  delay = 0,
-  direction = 'up',
-}: ScrollRevealProps) {
-  const prefersReducedMotion = useReducedMotion()
+export default function ScrollReveal({ children, className, delay = 0, direction = 'up' }: ScrollRevealProps) {
+  const elementRef = useRef<HTMLDivElement>(null)
 
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>
-  }
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let animation: Animation | undefined
+    const cancelMotion = () => { if (reducedMotion.matches) animation?.cancel() }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      if (!reducedMotion.matches) {
+        animation = element.animate([{ transform: offsets[direction] }, { transform: 'none' }], {
+          duration: 500,
+          delay: delay * 1000,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        })
+      }
+      observer.disconnect()
+    }, { rootMargin: '0px 0px -40px 0px' })
+    observer.observe(element)
+    reducedMotion.addEventListener('change', cancelMotion)
+    return () => {
+      observer.disconnect()
+      animation?.cancel()
+      reducedMotion.removeEventListener('change', cancelMotion)
+    }
+  }, [delay, direction])
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, ...directionOffset[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  )
+  return <div ref={elementRef} className={className}>{children}</div>
 }

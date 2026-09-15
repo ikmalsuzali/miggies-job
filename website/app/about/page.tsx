@@ -7,14 +7,14 @@ import JsonLd, { personSchema, breadcrumbSchema } from '@/components/seo/JsonLd'
 export const metadata: Metadata = {
   title: 'About Ashikin Azidee — Interior Designer & 3D Visualiser',
   description:
-    'Interior designer and 3D visualiser with 6+ years of experience specializing in render-to-reality accuracy across residential and commercial spaces in Malaysia. Currently Head of Design.',
+    'Interior designer and 3D visualiser with 6+ years of experience specializing in render-to-reality accuracy across residential and commercial spaces. Currently Head of Design.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     title: 'About Ashikin Azidee — Interior Designer & 3D Visualiser',
     description:
-      'Interior designer and 3D visualiser with 6+ years of experience specializing in render-to-reality accuracy across residential and commercial spaces in Malaysia.',
+      'Interior designer and 3D visualiser with 6+ years of experience specializing in render-to-reality accuracy across residential and commercial spaces.',
     url: '/about',
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     title: 'About Ashikin Azidee — Interior Designer & 3D Visualiser',
     description:
-      'Interior designer and 3D visualiser with 6+ years of experience in residential and commercial spaces in Malaysia.',
+      'Interior designer and 3D visualiser with 6+ years of experience in residential and commercial spaces.',
     images: ['/images/profile/profile.jpg'],
   },
 }

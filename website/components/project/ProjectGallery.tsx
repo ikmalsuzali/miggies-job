@@ -53,6 +53,9 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
                   className={isWide ? 'md:col-span-2' : ''}
                 >
                   <button
+                    type="button"
+                    aria-label={`View image: ${image.alt}`}
+                    aria-haspopup="dialog"
                     onClick={() => openLightbox(index)}
                     className={`${isWide ? 'aspect-[21/9]' : 'aspect-[4/3]'} relative overflow-hidden bg-cream-dark group cursor-pointer w-full`}
                   >
@@ -61,7 +64,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
                       alt={image.alt}
                       fill
                       className="object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-                      sizes={isWide ? '100vw' : '50vw'}
+                      sizes={isWide ? '100vw' : '(max-width: 768px) 100vw, 50vw'}
                     />
                     <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition-all duration-500 flex items-end">
                       <p className="p-5 text-xs uppercase tracking-[0.15em] text-cream/0 group-hover:text-cream/80 transition-all duration-500">

@@ -9,6 +9,8 @@ export default function ContactForm() {
   if (state.succeeded) {
     return (
       <motion.div
+        role="status"
+        aria-live="polite"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-cream-white p-10 lg:p-14 text-center border border-ink/5"
@@ -28,7 +30,8 @@ export default function ContactForm() {
 
   return (
     <div className="bg-cream-white p-8 lg:p-10 border border-ink/5">
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} aria-label="Project inquiry" aria-busy={state.submitting} className="space-y-6">
+        <p className="text-sm text-ink-light">A few details are all we need to begin. Fields marked * are required.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label
@@ -41,6 +44,7 @@ export default function ContactForm() {
               id="name"
               type="text"
               name="name"
+              autoComplete="name"
               required
               className="w-full bg-transparent border-b border-ink/15 py-4 text-sm text-ink placeholder:text-ink-muted/40 focus:border-brass focus:outline-none transition-colors input-glow"
               placeholder="Your name"
@@ -58,6 +62,7 @@ export default function ContactForm() {
               id="email"
               type="email"
               name="email"
+              autoComplete="email"
               required
               className="w-full bg-transparent border-b border-ink/15 py-4 text-sm text-ink placeholder:text-ink-muted/40 focus:border-brass focus:outline-none transition-colors input-glow"
               placeholder="your@email.com"
@@ -111,22 +116,6 @@ export default function ContactForm() {
 
         <div>
           <label
-            htmlFor="location"
-            className="block text-xs uppercase tracking-[0.2em] text-ink-muted mb-2"
-          >
-            Project Location
-          </label>
-          <input
-            id="location"
-            type="text"
-            name="location"
-            className="w-full bg-transparent border-b border-ink/15 py-4 text-sm text-ink placeholder:text-ink-muted/40 focus:border-brass focus:outline-none transition-colors input-glow"
-            placeholder="City, area, or development name"
-          />
-        </div>
-
-        <div>
-          <label
             htmlFor="message"
             className="block text-xs uppercase tracking-[0.2em] text-ink-muted mb-2"
           >
@@ -141,6 +130,10 @@ export default function ContactForm() {
             placeholder="Size, style, timeline, any references or inspiration..."
           />
           <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-500 mt-1" />
+        </div>
+
+        <div role="alert">
+          <ValidationError errors={state.errors} className="text-sm text-red-700" />
         </div>
 
         <div className="flex flex-col items-end gap-3 mt-2">

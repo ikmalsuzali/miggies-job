@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    locale: 'en_MY',
     type: 'website',
     images: [
       {
@@ -75,8 +74,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Navigation />
-        <main className="flex-1 pt-16 lg:pt-20">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 pt-18 lg:pt-24">{children}</main>
         <Footer />
       </body>
     </html>

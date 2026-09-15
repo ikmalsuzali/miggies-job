@@ -30,12 +30,6 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                   <p className="text-sm text-ink font-medium">{project.client}</p>
                 </div>
               )}
-              <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-ink-muted mb-2">
-                  Location
-                </p>
-                <p className="text-sm text-ink font-medium">{project.location}</p>
-              </div>
               {project.area && (
                 <div>
                   <p className="text-xs uppercase tracking-[0.25em] text-ink-muted mb-2">

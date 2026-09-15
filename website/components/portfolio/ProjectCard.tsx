@@ -1,64 +1,24 @@
-'use client'
-
 import Link from 'next/link'
-import Image from 'next/image'
+import PortfolioImage from '@/components/ui/PortfolioImage'
 import { Project } from '@/lib/types'
 
-interface ProjectCardProps {
-  project: Project
-  index: number
-}
-
-export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const isWide = index % 3 === 0
-  const isTall = index % 3 === 1
-
+export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <Link
-      href={`/portfolio/${project.slug}`}
-      className={`group block relative overflow-hidden bg-cream-dark ${isWide ? 'md:col-span-2' : ''}`}
-    >
-      <div className={`${isTall ? 'aspect-[3/4]' : isWide ? 'aspect-[16/9]' : 'aspect-[4/3]'} relative overflow-hidden`}>
-        <Image
-          src={project.heroImage.src}
-          alt={project.heroImage.alt}
-          fill
-          className="object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-          sizes={isWide ? '100vw' : '(max-width: 768px) 100vw, 33vw'}
-        />
-
-        {/* Default: thin bottom bar */}
-        <div className="absolute bottom-0 left-0 right-0 py-4 px-5 bg-gradient-to-t from-ink/60 to-transparent">
-          <div className="flex items-center justify-between">
-            <h3 className="font-serif text-base lg:text-lg text-cream/90 font-medium">
-              {project.title}
-            </h3>
-            <span className="text-xs text-cream/50">{project.year}</span>
-          </div>
+    <Link href={`/portfolio/${project.slug}`} className="group block h-full">
+      <div className="relative aspect-[4/3] overflow-hidden bg-cream-dark">
+        <PortfolioImage image={project.heroImage} className="object-cover transition-transform duration-700 group-hover:scale-[1.03] group-focus-visible:scale-[1.03]" sizes="(max-width: 768px) 100vw, 50vw" />
+        <span className="absolute top-4 left-4 bg-cream/95 text-ink px-3 py-2 text-[10px] uppercase tracking-[0.15em]">{project.category}</span>
+        {project.comparison && <span className="absolute bottom-4 left-4 bg-ink/85 text-cream px-3 py-2 text-[10px] tracking-wider">3D render & built space</span>}
+      </div>
+      <div className="pt-5 pb-8 border-b border-ink/15">
+        <div className="flex justify-between items-baseline gap-4">
+          <h2 className="font-serif text-3xl lg:text-4xl leading-tight">{project.title}</h2>
+          <span className="text-ink-muted text-xs tabular-nums">{String(index + 1).padStart(2, '0')} / {project.year}</span>
         </div>
-
-        {/* Hover: full overlay */}
-        <div className="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 lg:p-8">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-xs uppercase tracking-[0.25em] text-cream/60">
-              {project.category}
-            </span>
-            {project.comparison && (
-              <>
-                <span className="w-4 h-px bg-cream/30" />
-                <span className="text-xs uppercase tracking-[0.15em] text-brass">
-                  Render vs Reality
-                </span>
-              </>
-            )}
-          </div>
-          <h3 className="font-serif text-xl lg:text-2xl font-light text-cream leading-tight">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-sm text-cream/50">{project.subtitle}</p>
-          <p className="mt-3 text-xs text-cream/40">
-            {project.location} {project.area && `\u00B7 ${project.area}`}
-          </p>
+        <p className="mt-2 text-sm text-ink-light">{project.subtitle}</p>
+        <div className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.15em]">
+          <span className="text-ink-muted">{project.area}</span>
+          <span className="group-hover:text-brass-dark transition-colors">Explore project ↗</span>
         </div>
       </div>
     </Link>

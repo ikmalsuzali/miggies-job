@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import PortfolioImage from '@/components/ui/PortfolioImage'
 import { getFeaturedProjects } from '@/lib/data/projects'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
@@ -9,14 +9,18 @@ export default function FeaturedProjects() {
   const featured = getFeaturedProjects().slice(0, 3)
 
   return (
-    <section className="py-28 lg:py-40">
+    <section id="selected-work" className="py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
         {/* Section header */}
         <ScrollReveal>
-          <div className="mb-16 lg:mb-24">
+          <div className="mb-10 lg:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6 border-t border-ink/15 pt-8">
+            <div>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-brass-dark mb-4">01 / The portfolio</p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-ink leading-[0.95]">
               Selected Work
             </h2>
+            </div>
+            <p className="text-sm text-ink-light max-w-xs leading-relaxed">A selection of homes and workspaces. Each with its own character, each considered down to the detail.</p>
           </div>
         </ScrollReveal>
 
@@ -28,11 +32,8 @@ export default function FeaturedProjects() {
                 href={`/portfolio/${project.slug}`}
                 className="group block relative overflow-hidden"
               >
-                <div className="aspect-[16/9] lg:aspect-[21/9] relative overflow-hidden bg-cream-dark">
-                  <Image
-                    src={project.heroImage.src}
-                    alt={project.heroImage.alt}
-                    fill
+                <div className="aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] relative overflow-hidden bg-cream-dark">
+                  <PortfolioImage image={project.heroImage}
                     className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]"
                     sizes="100vw"
                   />
@@ -42,18 +43,18 @@ export default function FeaturedProjects() {
                   {/* Info positioned at bottom-left */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10">
                     <div className="flex items-center gap-4 mb-3">
-                      <span className="text-xs uppercase tracking-[0.25em] text-cream/60">
+                      <span className="text-xs uppercase tracking-[0.25em] text-cream/85">
                         {project.category}
                       </span>
                       <span className="w-6 h-px bg-cream/20" />
-                      <span className="text-xs uppercase tracking-[0.2em] text-cream/40">
+                      <span className="text-xs uppercase tracking-[0.2em] text-cream/75">
                         {project.year}
                       </span>
                     </div>
                     <h3 className="font-serif text-2xl lg:text-4xl xl:text-5xl font-light text-cream leading-tight">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm lg:text-base text-cream/50 max-w-lg">
+                    <p className="mt-2 text-sm lg:text-base text-cream/80 max-w-lg">
                       {project.subtitle}
                     </p>
                   </div>

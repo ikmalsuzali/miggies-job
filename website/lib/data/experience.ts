@@ -5,7 +5,6 @@ export const experiences: Experience[] = [
     company: 'Design Bliss',
     role: 'Head of Design (HOD)',
     period: 'Jan 2025 — Present',
-    location: 'Malaysia',
     description:
       'Leading the design team and overseeing full project lifecycle from concept to completion.',
     highlights: [
@@ -23,7 +22,6 @@ export const experiences: Experience[] = [
     company: 'Design Bliss',
     role: 'Senior Interior Designer',
     period: 'Apr 2023 — Jan 2025',
-    location: 'Malaysia',
     description:
       'Led interior design projects from concept development to final execution.',
     highlights: [
@@ -40,7 +38,6 @@ export const experiences: Experience[] = [
     company: 'Design Bliss',
     role: 'Interior Designer',
     period: 'Apr 2022 — Apr 2023',
-    location: 'Malaysia',
     description:
       'Developed creative and implementable interior design solutions for residential and commercial projects.',
     highlights: [
@@ -54,7 +51,6 @@ export const experiences: Experience[] = [
     company: 'Blaine Robert Design Sdn Bhd',
     role: 'Interior Designer',
     period: 'Apr 2021 — Apr 2022',
-    location: 'Malaysia',
     description:
       'Designed residential interiors and coordinated with construction teams.',
     highlights: [],
@@ -63,7 +59,6 @@ export const experiences: Experience[] = [
     company: 'V ID Contract Sdn Bhd',
     role: 'Interior Designer',
     period: 'Feb 2020 — Apr 2021',
-    location: 'Malaysia',
     description:
       'Worked on commercial and residential interior design projects.',
     highlights: [],
@@ -72,7 +67,6 @@ export const experiences: Experience[] = [
     company: 'Hdreka Resources',
     role: 'Interior Designer',
     period: 'Dec 2018 — Dec 2019',
-    location: 'Malaysia',
     description:
       'First professional role in interior design after completing degree.',
     highlights: [],

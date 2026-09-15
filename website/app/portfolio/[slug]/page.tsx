@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import PortfolioImage from '@/components/ui/PortfolioImage'
 import { notFound } from 'next/navigation'
 import { projects, getProject } from '@/lib/data/projects'
 import ProjectHero from '@/components/project/ProjectHero'
@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!project) return {}
   return {
     title: `${project.title} — ${project.category} Interior Design`,
-    description: `${project.subtitle}. ${project.area ? project.area + ' ' : ''}${project.category.toLowerCase()} interior design project in ${project.location} by Ashikin Azidee.`,
+    description: `${project.subtitle}. ${project.area ? project.area + ' ' : ''}${project.category.toLowerCase()} interior design project by Ashikin Azidee.`,
     alternates: {
       canonical: `/portfolio/${slug}`,
     },
@@ -45,7 +45,7 @@ export async function generateMetadata({
     },
     twitter: {
       title: `${project.title} — ${project.category} Interior Design`,
-      description: `${project.subtitle}. ${project.category} interior design in ${project.location} by Ashikin Azidee.`,
+      description: `${project.subtitle}. ${project.category} interior design by Ashikin Azidee.`,
       images: [project.heroImage.src],
     },
   }
@@ -109,10 +109,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         className="group block relative overflow-hidden"
       >
         <div className="relative h-[40vh] lg:h-[50vh] bg-cream-dark">
-          <Image
-            src={nextProject.heroImage.src}
-            alt={nextProject.heroImage.alt}
-            fill
+          <PortfolioImage image={nextProject.heroImage}
             className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]"
             sizes="100vw"
           />

@@ -38,11 +38,14 @@ export default function Testimonials() {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i === current ? 'bg-ink w-6' : 'bg-ink/20 hover:bg-ink/40'
+                    aria-pressed={i === current}
+                    className={`w-11 h-11 flex items-center justify-center transition-all duration-300 ${
+                      i === current ? 'text-ink' : 'text-ink-muted hover:text-ink'
                     }`}
                     aria-label={`View testimonial ${i + 1}`}
-                  />
+                  >
+                    <span aria-hidden="true" className={`h-1 rounded-full bg-current transition-all ${i === current ? 'w-6' : 'w-2'}`} />
+                  </button>
                 ))}
               </div>
             )}

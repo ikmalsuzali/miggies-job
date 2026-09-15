@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { projects } from '@/lib/data/projects'
 import ProjectFilter from './ProjectFilter'
 import ProjectCard from './ProjectCard'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export default function ProjectGrid() {
+  const reducedMotion = useReducedMotion()
   const [activeFilter, setActiveFilter] = useState('All')
 
   const filtered =
@@ -16,12 +17,13 @@ export default function ProjectGrid() {
       : projects.filter((p) => p.category === activeFilter)
 
   return (
-    <section className="py-28 lg:py-36">
+    <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
         <ScrollReveal>
-          <div className="mb-16">
+          <div className="mb-12">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-brass-dark mb-6">A collection of considered spaces</p>
             <h1 className="font-serif text-5xl lg:text-7xl font-light text-ink leading-[0.95] mb-6">
-              Portfolio
+              Spaces with a story.
             </h1>
             <p className="text-ink-light text-base lg:text-lg max-w-2xl leading-relaxed">
               Residential, commercial, and design & build projects crafted with precision and care.
@@ -31,17 +33,18 @@ export default function ProjectGrid() {
 
         <ProjectFilter active={activeFilter} onChange={setActiveFilter} />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+        <p role="status" aria-live="polite" className="text-xs text-ink-muted py-5">Showing {filtered.length} {activeFilter === 'All' ? 'projects' : `${activeFilter.toLowerCase()} projects`}</p>
+
+        <div id="project-results" className="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-x-10 gap-y-10 lg:gap-y-14">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, index) => (
               <motion.div
                 key={project.slug}
-                layout
-                initial={{ opacity: 0, y: 20 }}
+                layout={!reducedMotion}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                className={index % 3 === 0 ? 'md:col-span-2' : ''}
+                transition={{ duration: reducedMotion ? 0 : 0.35, delay: reducedMotion ? 0 : index * 0.04 }}
               >
                 <ProjectCard project={project} index={index} />
               </motion.div>

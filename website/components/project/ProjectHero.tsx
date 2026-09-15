@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import PortfolioImage from '@/components/ui/PortfolioImage'
 import { motion } from 'framer-motion'
 import { Project } from '@/lib/types'
 
@@ -19,10 +19,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          <Image
-            src={project.heroImage.src}
-            alt={project.heroImage.alt}
-            fill
+          <PortfolioImage image={project.heroImage}
             className="object-cover"
             sizes="100vw"
             priority
@@ -39,7 +36,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="bg-cream p-8 lg:p-16 max-w-3xl border border-ink/5"
         >
-          <div className="flex items-center gap-4 mb-5">
+          <div className="flex flex-wrap items-center gap-3 mb-5">
             <span className="text-xs uppercase tracking-[0.25em] text-ink-muted">
               {project.category}
             </span>

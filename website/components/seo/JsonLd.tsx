@@ -29,17 +29,9 @@ export function personSchema() {
     '@type': 'Person',
     name: siteConfig.name,
     url: siteConfig.url,
-    email: siteConfig.email,
-    telephone: siteConfig.phone,
     jobTitle: 'Head of Design',
     description: siteConfig.description,
     image: `${siteConfig.url}/images/profile/profile.jpg`,
-    sameAs: [siteConfig.linkedin].filter(Boolean),
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'MY',
-      addressLocality: 'Malaysia',
-    },
     knowsAbout: [
       'Interior Design',
       '3D Visualization',
@@ -58,24 +50,14 @@ export function professionalServiceSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
-    email: siteConfig.email,
-    telephone: siteConfig.phone,
     image: `${siteConfig.url}/images/profile/profile.jpg`,
     priceRange: 'RM 50,000 - RM 500,000+',
-    areaServed: {
-      '@type': 'Country',
-      name: 'Malaysia',
-    },
     serviceType: [
       'Interior Design',
       '3D Visualization',
       'Design & Build',
       'Space Planning',
     ],
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'MY',
-    },
   }
 }
 
@@ -85,7 +67,6 @@ export function projectSchema(project: {
   description: string
   category: string
   year: string
-  location: string
   heroImage: { src: string; alt: string }
   area?: string
 }) {
@@ -103,10 +84,6 @@ export function projectSchema(project: {
     },
     dateCreated: project.year,
     genre: `${project.category} Interior Design`,
-    locationCreated: {
-      '@type': 'Place',
-      name: project.location,
-    },
   }
 }
 

@@ -5,22 +5,22 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import JsonLd, { professionalServiceSchema, breadcrumbSchema } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Contact — Hire an Interior Designer in Malaysia',
+  title: 'Contact — Hire an Interior Designer',
   description:
-    'Get in touch with Ashikin Azidee for residential and commercial interior design projects in Malaysia. Free consultation, 48-hour response.',
+    'Get in touch with Ashikin Azidee for residential and commercial interior design projects. Free consultation, 48-hour response.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact — Hire an Interior Designer in Malaysia',
+    title: 'Contact — Hire an Interior Designer',
     description:
-      'Get in touch with Ashikin Azidee for residential and commercial interior design projects in Malaysia. Free consultation, 48-hour response.',
+      'Get in touch with Ashikin Azidee for residential and commercial interior design projects. Free consultation, 48-hour response.',
     url: '/contact',
   },
   twitter: {
-    title: 'Contact — Hire an Interior Designer in Malaysia',
+    title: 'Contact — Hire an Interior Designer',
     description:
-      'Get in touch for residential and commercial interior design projects in Malaysia. Free consultation, 48-hour response.',
+      'Get in touch for residential and commercial interior design projects. Free consultation, 48-hour response.',
   },
 }
 

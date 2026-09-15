@@ -3,11 +3,10 @@ import { Project } from '../types'
 export const projects: Project[] = [
   {
     slug: 'aetas-damansara',
-    title: 'Aetas, Damansara',
+    title: 'Aetas',
     subtitle: 'Japandi elegance in a luxury condominium',
     category: 'Residential',
     year: '2025',
-    location: 'Damansara, Malaysia',
     client: 'Private Client',
     area: '3,110 sq ft',
     description:
@@ -22,7 +21,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/aetas-damansara/hero.jpg',
-      alt: 'Aetas Damansara living area with Japandi interior design',
+      alt: 'Aetas living room with soft neutral tones and timber details',
+      crop: { x: 175, y: 578, width: 753, height: 422 },
     },
     gallery: [
       { src: '/images/projects/aetas-damansara/1.jpg', alt: 'Living room and dining area' },
@@ -36,11 +36,10 @@ export const projects: Project[] = [
   },
   {
     slug: 'mercu-maybank',
-    title: 'Mercu Maybank, i-City',
+    title: 'Mercu Maybank',
     subtitle: 'Modern minimalist corporate office',
     category: 'Commercial',
     year: '2024',
-    location: 'Shah Alam, Malaysia',
     client: 'Rhenus Logistics',
     area: '4,987 sq ft',
     description:
@@ -55,7 +54,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/mercu-maybank/hero.jpg',
-      alt: 'Rhenus Logistics office reception with brand wall',
+      alt: 'Office with timber panelling and a blue rug',
+      crop: { x: 73, y: 279, width: 855, height: 567 },
     },
     gallery: [
       { src: '/images/projects/mercu-maybank/1.jpg', alt: 'Open plan workstations' },
@@ -66,20 +66,19 @@ export const projects: Project[] = [
     ],
     comparison: [
       {
-        render: { src: '/images/projects/mercu-maybank/hero.jpg', alt: '3D render of office reception' },
-        reality: { src: '/images/projects/mercu-maybank/1.jpg', alt: 'Completed office reception' },
-        caption: 'Reception & Open Office — Render vs Reality',
+        render: { src: '/images/projects/mercu-maybank/hero.jpg', alt: '3D render of office', crop: { x: 73, y: 279, width: 855, height: 567 } },
+        reality: { src: '/images/projects/mercu-maybank/hero.jpg', alt: 'Completed office', crop: { x: 1212, y: 146, width: 596, height: 396 } },
+        caption: 'Office — Render vs Reality',
       },
     ],
     featured: true,
   },
   {
     slug: 'wisma-consplant',
-    title: 'Wisma Consplant, Subang',
+    title: 'Wisma Consplant',
     subtitle: 'Modern contemporary corporate workspace',
     category: 'Commercial',
     year: '2023',
-    location: 'Subang, Malaysia',
     client: 'Rhenus Logistics',
     area: '3,600 sq ft',
     description:
@@ -94,7 +93,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/wisma-consplant/hero.jpg',
-      alt: 'Wisma Consplant office reception with Rhenus branding',
+      alt: 'Completed conference room with timber panelling',
+      crop: { x: 1073, y: 279, width: 854, height: 567 },
     },
     gallery: [
       { src: '/images/projects/wisma-consplant/1.jpg', alt: 'Corporate values wall' },
@@ -110,24 +110,23 @@ export const projects: Project[] = [
     ],
     comparison: [
       {
-        render: { src: '/images/projects/wisma-consplant/hero.jpg', alt: '3D render of office lobby' },
-        reality: { src: '/images/projects/wisma-consplant/1.jpg', alt: 'Completed office lobby' },
-        caption: 'Lobby & Values Wall — Render vs Reality',
+        render: { src: '/images/projects/wisma-consplant/hero.jpg', alt: '3D render of conference room', crop: { x: 74, y: 324, width: 852, height: 478 } },
+        reality: { src: '/images/projects/wisma-consplant/hero.jpg', alt: 'Completed conference room', crop: { x: 1073, y: 279, width: 854, height: 567 } },
+        caption: 'Conference Room — Render vs Reality',
       },
     ],
     featured: true,
   },
   {
     slug: 'allevia-mont-kiara',
-    title: 'Allevia, Mont Kiara',
+    title: 'Allevia',
     subtitle: 'Modern contemporary luxury living',
     category: 'Residential',
     year: '2025',
-    location: 'Mont Kiara, Kuala Lumpur',
     client: 'Private Client',
     area: '1,900 sq ft',
     description:
-      'A luxury condominium in Mont Kiara designed with a modern contemporary concept. The space features a warm palette of timber, stone, and subtle metallic accents. Custom joinery and built-in cabinetry maximise every square foot while maintaining a sense of openness and sophistication throughout the foyer, living, dining, bedrooms, and study.',
+      'A luxury condominium designed with a modern contemporary concept. The space features a warm palette of timber, stone, and subtle metallic accents. Custom joinery and built-in cabinetry maximise every square foot while maintaining a sense of openness and sophistication throughout the foyer, living, dining, bedrooms, and study.',
     scope: [
       'Interior Design',
       'Space Planning',
@@ -138,7 +137,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/allevia-mont-kiara/hero.jpg',
-      alt: 'Allevia Mont Kiara foyer and dining area',
+      alt: 'Allevia living room with custom shelving',
+      crop: { x: 1073, y: 579, width: 751, height: 422 },
     },
     gallery: [
       { src: '/images/projects/allevia-mont-kiara/1.jpg', alt: 'Dining area and living room' },
@@ -152,15 +152,14 @@ export const projects: Project[] = [
   },
   {
     slug: 'one-menerung',
-    title: 'One Menerung, Bangsar',
+    title: 'One Menerung',
     subtitle: 'Sophisticated luxury with earthy tones',
     category: 'Residential',
     year: '2025',
-    location: 'Bangsar, Kuala Lumpur',
     client: 'Private Client',
     area: '3,200 sq ft',
     description:
-      'A generous condominium in Bangsar designed with a modern contemporary luxury concept. The palette draws from nature — olive greens, warm walnut, and terracotta accents against herringbone flooring. The home includes a spacious living and dining area, gourmet kitchen, study, home gym, and multiple bedrooms with bespoke joinery throughout.',
+      'A generous condominium designed with a modern contemporary luxury concept. The palette draws from nature — olive greens, warm walnut, and terracotta accents against herringbone flooring. The home includes a spacious living and dining area, gourmet kitchen, study, home gym, and multiple bedrooms with bespoke joinery throughout.',
     scope: [
       'Interior Design',
       'Space Planning',
@@ -171,7 +170,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/one-menerung/hero.jpg',
-      alt: 'One Menerung living room with herringbone floors and custom joinery',
+      alt: 'One Menerung kitchen with dark cabinetry and marble finishes',
+      crop: { x: 74, y: 276, width: 852, height: 573 },
     },
     gallery: [
       { src: '/images/projects/one-menerung/1.jpg', alt: 'Living room and TV feature wall' },
@@ -187,15 +187,14 @@ export const projects: Project[] = [
   },
   {
     slug: 'rini-homes',
-    title: 'Rini Homes 2, JB',
+    title: 'Rini Homes 2',
     subtitle: 'Bold contemporary terrace house transformation',
     category: 'Residential',
     year: '2022',
-    location: 'Johor Bahru, Malaysia',
     client: 'Private Client',
     area: '2,900 sq ft',
     description:
-      'A consultation project for a double-storey terrace house in Johor Bahru. The design features a bold monochromatic palette with marble accents, a statement staircase, and a custom altar area. This project includes render-to-reality comparisons demonstrating close alignment between 3D visualization and the completed built space.',
+      'A consultation project for a double-storey terrace house. The design features a bold monochromatic palette with marble accents, a statement staircase, and a custom altar area. This project includes render-to-reality comparisons demonstrating close alignment between 3D visualization and the completed built space.',
     scope: [
       'Design Consultation',
       'Interior Design',
@@ -205,7 +204,8 @@ export const projects: Project[] = [
     ],
     heroImage: {
       src: '/images/projects/rini-homes/hero.jpg',
-      alt: 'Rini Homes 2 exterior facade',
+      alt: 'Bedroom with timber panelling and a built-in dressing table',
+      crop: { x: 73, y: 257, width: 853, height: 610 },
     },
     gallery: [
       { src: '/images/projects/rini-homes/1.jpg', alt: 'Altar area render vs reality' },
@@ -216,9 +216,9 @@ export const projects: Project[] = [
     ],
     comparison: [
       {
-        render: { src: '/images/projects/rini-homes/1.jpg', alt: '3D render of altar area' },
-        reality: { src: '/images/projects/rini-homes/2.jpg', alt: 'Completed altar and foyer' },
-        caption: 'Entrance & Altar — Render vs Reality',
+        render: { src: '/images/projects/rini-homes/hero.jpg', alt: '3D render of bedroom', crop: { x: 73, y: 257, width: 853, height: 610 } },
+        reality: { src: '/images/projects/rini-homes/hero.jpg', alt: 'Completed bedroom', crop: { x: 1130, y: 279, width: 761, height: 569 } },
+        caption: 'Bedroom — Render vs Reality',
       },
     ],
     featured: true,

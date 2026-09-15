@@ -42,7 +42,7 @@ export default function ProfileSection() {
             </h1>
             <div className="space-y-6 text-ink-light text-base lg:text-lg leading-[1.8]">
               <p>
-                I&apos;m Ashikin Azidee, a self-driven interior designer and 3D visualiser based in Malaysia. My work is defined by one principle: what you see in the render should be what you experience in the built space.
+                I&apos;m Ashikin Azidee, a self-driven interior designer and 3D visualiser. My work is defined by one principle: what you see in the render should be what you experience in the built space.
               </p>
               <p>
                 With a Bachelor&apos;s in Interior Architecture from UiTM and progression from Interior Designer to Head of Design, my portfolio spans luxury condominiums, corporate offices, and terrace homes — each approached with the same precision and creative care.

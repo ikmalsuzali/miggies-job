@@ -3,6 +3,8 @@ export type ProjectCategory = 'Residential' | 'Commercial' | 'Design & Built'
 export interface ProjectImage {
   src: string
   alt: string
+  // Panel bounds in the original 2000 × 1125 portfolio spread.
+  crop?: { x: number; y: number; width: number; height: number }
 }
 
 export interface ComparisonPair {
@@ -17,7 +19,6 @@ export interface Project {
   subtitle: string
   category: ProjectCategory
   year: string
-  location: string
   client?: string
   area?: string
   description: string
@@ -32,7 +33,6 @@ export interface Experience {
   company: string
   role: string
   period: string
-  location: string
   description: string
   highlights: string[]
 }
@@ -48,8 +48,4 @@ export interface SiteConfig {
   title: string
   description: string
   url: string
-  email: string
-  phone?: string
-  linkedin?: string
-  location: string
 }

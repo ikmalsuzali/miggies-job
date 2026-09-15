@@ -155,7 +155,7 @@ export default function InquiryCTA() {
                       name="message"
                       rows={3}
                       className="w-full bg-transparent border-b border-ink/15 py-3 text-sm text-ink placeholder:text-ink-muted/40 focus:border-brass focus:outline-none transition-colors resize-none input-glow"
-                      placeholder="Location, size, style preferences..."
+                      placeholder="Size, style, timeline, preferences..."
                     />
                   </div>
 
