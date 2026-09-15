@@ -31,7 +31,6 @@ export function personSchema() {
     url: siteConfig.url,
     jobTitle: 'Head of Design',
     description: siteConfig.description,
-    image: `${siteConfig.url}/images/profile/profile.jpg`,
     knowsAbout: [
       'Interior Design',
       '3D Visualization',
@@ -50,7 +49,7 @@ export function professionalServiceSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
-    image: `${siteConfig.url}/images/profile/profile.jpg`,
+    image: `${siteConfig.url}/images/projects/aetas-damansara/hero.jpg`,
     priceRange: 'RM 50,000 - RM 500,000+',
     serviceType: [
       'Interior Design',

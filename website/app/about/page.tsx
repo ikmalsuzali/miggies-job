@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     url: '/about',
     images: [
       {
-        url: '/images/profile/profile.jpg',
+        url: '/images/projects/aetas-damansara/hero.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ashikin Azidee — Interior Designer',
+        alt: 'Interior design portfolio by Ashikin Azidee',
       },
     ],
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'About Ashikin Azidee — Interior Designer & 3D Visualiser',
     description:
       'Interior designer and 3D visualiser with 6+ years of experience in residential and commercial spaces.',
-    images: ['/images/profile/profile.jpg'],
+    images: ['/images/projects/aetas-damansara/hero.jpg'],
   },
 }
 
